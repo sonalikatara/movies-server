@@ -9,7 +9,11 @@ const API_URL_POPULAR_MOVIES =
 router.get('/', function(req, res, next) {
   let page =  req.query.page ? req.query.page : 1;
   let reqUrl = API_URL_POPULAR_MOVIES + '&page='+ page;
-  axios.get(reqUrl).then(response => res.send(response.data.results)).catch(err => {
+  axios.get(reqUrl).then(
+      response => res.send(
+        response.data.results.map(
+            movie => ({...movie, rating : Math.round(movie.vote_average/2 )})
+    ))).catch(err => {
     res.send("error while getting popular movies results "+ err);
   });
 }
