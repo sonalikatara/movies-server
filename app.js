@@ -10,6 +10,9 @@ dotenv.config();
 var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
 var searchRouter = require('./routes/search');
+var movieRouter = require('./routes/movie');
+var discoverRouter = require('./routes/discover');
+
 
 var app = express();
 // view engine setup
@@ -27,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/movies', moviesRouter);
+app.use('/movie', movieRouter);
+app.use('/discover', discoverRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

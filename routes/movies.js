@@ -9,6 +9,7 @@ const API_URL_POPULAR_MOVIES =
 router.get('/', function(req, res, next) {
   let page =  req.query.page ? req.query.page : 1;
   let reqUrl = API_URL_POPULAR_MOVIES + '&page='+ page;
+
   axios.get(reqUrl).then(
       response => res.send(
         response.data.results.map(
@@ -16,6 +17,9 @@ router.get('/', function(req, res, next) {
     ))).catch(err => {
     res.send("error while getting popular movies results "+ err);
   });
+  
+  // vote_average is It's the average of all of the TMDb user ratings'
+  
 }
 );
 
