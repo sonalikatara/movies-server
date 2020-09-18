@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 
-const API_URL_DISCOVER_MOVIES = "https://api.themoviedb.org/3/discover/movie?api_key="+process.env.TMBC_API_KEY+"&language=en-US&include_adult=false&include_video=false";
+const API_URL_DISCOVER_MOVIES = "https://api.themoviedb.org/3/discover/movie?api_key="+process.env.TMBC_API_KEY+"&language=en-US&include_adult=false&include_video=false&sort_by=popularity.desc";
 
 /*  GET popular movies listing based on a QUERY. */
 router.get('/',function(req,res,next){
