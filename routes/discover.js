@@ -17,7 +17,7 @@ router.get('/',function(req,res,next){
         )
       )
     ).catch(err => {
-      res.send("error while getting discover results " + err  + " linl : "+ reqUrl);
+      res.send("error while getting discover results " + err  );
     });
 }
 );
